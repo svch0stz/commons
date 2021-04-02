@@ -1,4 +1,4 @@
-# Digital-Thought Commons Python Library
+# Digital-Thought, Common Python Library
 
 My standard python libs for doing things
 
