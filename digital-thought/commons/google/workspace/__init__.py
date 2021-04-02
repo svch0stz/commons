@@ -33,7 +33,7 @@ def authenticate(client_secret_json, client_id, scopes, local_server_port=8000):
 
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
-            logging.warning(f'Previous authentication token {client_token_file} has expired.  Refreshing authenticaiton.')
+            logging.warning(f'Previous authentication token {client_token_file} has expired.  Refreshing authentication.')
             creds.refresh(Request())
         else:
             logging.info(f'No previous authentication token.  Attempting authentication.')
