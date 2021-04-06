@@ -6,10 +6,10 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="digital-thought-commons",
+    name="digital_thought-commons",
     version="0.01.30",
     author="Digital Thought",
-    author_email="matthew@digital-thought.org",
+    author_email="matthew@digital_thought.org",
     description="My standard python libs for doing things",
     long_description=long_description,
     long_description_content_type="text/markdown",
