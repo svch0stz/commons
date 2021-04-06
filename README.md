@@ -34,5 +34,7 @@ pip install digital-thought-commons
 This work is made freely available under the Version 3, GNU AFFERO GENERAL PUBLIC LICENSE.
 
 ***
-## Contact and Questions
-If you have any questions, please email [coder@digital-thought.org](mailto:coder@digital-thought.org?subject=[Question:digital-thought-commons]).
+## Contact, Questions and Issues
+If you have any questions, please email [coder@digital-thought.org](mailto:coder@digital-thought.org?subject=[Question:digital-thought-commons])<br>
+If you encounter any issues in the use of this library, please log them via https://github.com/Digital-Thought/commons/issues" <br>
+If you would like to contribute to this library, please email [coder@digital-thought.org](mailto:coder@digital-thought.org?subject=[Question:digital-thought-commons])
