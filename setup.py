@@ -7,7 +7,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="digital_thought-commons",
-    version="0.01.00-beta.1",
+    version="0.01.00-beta.2",
     author="Digital Thought",
     author_email="matthew@digital-thought.org",
     description="My standard python libs for doing things",
@@ -36,9 +36,11 @@ setuptools.setup(
         "google-auth-oauthlib"
     ],
     classifiers=[
-        "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: AGPLv3",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "License :: OSI Approved :: GNU Affero General Public License v3",
         "Operating System :: OS Independent",
+        "Development Status :: 4 - Beta"
     ],
     packages=find_packages(exclude=('tests', 'docs', 'sampleConfigs')),
     python_requires='>=3.8',
