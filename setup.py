@@ -7,7 +7,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="digital_thought-commons",
-    version="0.01.00-beta.2",
+    version="0.01.00-beta.3",
     author="Digital Thought",
     author_email="matthew@digital-thought.org",
     description="My standard python libs for doing things",
