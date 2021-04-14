@@ -1,1 +1,2 @@
 include digital_thought_commons/_resources/*
+include digital_thought_commons/version
