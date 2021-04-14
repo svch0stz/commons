@@ -1,3 +1,6 @@
 from . import *
 
-__version__ = '0.01.00-beta.5'
+with open("version", "r") as fh:
+    version_info = fh.read()
+
+__version__ = version_info
