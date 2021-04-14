@@ -36,3 +36,10 @@ class TestDigests(unittest.TestCase):
         self.assertEqual(digest.sha1(), '3cb90dea5074849a0da1c734c7738fe7db6523a6')
         self.assertEqual(digest.sha512(), '4227b48563622f64b4e9c7afcef8564b829ca18691cf332f5b97b22ac8e0f1aca03c0370132932e1105b1cec5662e57de679fde56aa0a211c88904bb41a2409c')
 
+    def test_file_digests(self):
+        digest = digests.calc_file_digests("digest_sample_file", process_extended=True)
+        self.assertEqual(digest.md5(), 'c639efc1e98762233743a75e7798dd9c')
+        self.assertEqual(digest.sha256(), '717AC506950DA0CCB6404CDD5E7591F72018A20CBCA27C8A423E9C9E5626AC61'.lower())
+        self.assertEqual(digest.sha1(), 'E2F67C772368ACDEEE6A2242C535C6CC28D8E0ED'.lower())
+        self.assertEqual(digest.sha512(), 'B8EE69B29956B0B56E26D0A25C6A80713C858CF2902A12962AAD08D682345646B2D5F193BBE03997543A9285E5932F34BAF2C85C89459F25BA1CF43C4410793C'.lower())
+
