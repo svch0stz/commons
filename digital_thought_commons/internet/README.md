@@ -1,8 +1,9 @@
 # Internet Utilities
 
-#### Feature:
+#### Features:
 [Scrapper](#scrapper)
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+***
+
 ## Scrapper
 This scrapper implements Selenium, Chromium Webdriver instance in order to take advantage of Javascript support.<br>
 It combines two instances of the Chromium Webdriver; one if for accessing content on the TOR network and the other is via the default internet connection.<br>
