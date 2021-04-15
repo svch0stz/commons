@@ -25,6 +25,15 @@ class ElasticsearchConnection:
 
         logging.getLogger('elastic').info("Successfully connected to: {}".format(self.root_url))
 
+    def __enter__(self):
+        return self
+
+    def close(self):
+        self.request_session.close()
+
+    def __exit__(self, type, value, traceback):
+        self.close()
+
     def install_component_template(self, template_name, template, description=None, version=None, requires_prefix=None):
         if template_name not in self.loaded_component_templates():
             if '_meta' not in template and (description is None or version is None or requires_prefix is None):
