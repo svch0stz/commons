@@ -37,7 +37,8 @@ setuptools.setup(
         "google-api-python-client",
         "google-auth-httplib2",
         "google-auth-oauthlib",
-        "selenium==3.141.0"
+        "selenium==3.141.0",
+        "elasticsearch"
     ],
     classifiers=[
         "Programming Language :: Python :: 3.8",

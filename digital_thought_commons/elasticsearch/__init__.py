@@ -7,6 +7,9 @@ import re
 from .. import internet
 from .bulkProcessor import BulkProcessor
 from .scrollQuery import ScrollQuery
+from elasticsearch import Elasticsearch
+
+import base64
 
 
 class ElasticsearchConnection:
@@ -17,6 +20,9 @@ class ElasticsearchConnection:
         self.root_directory = str(pathlib.Path(__file__).parent.absolute()) + '/../_resources/elasticsearch'
         self.request_session = internet.retry_request_session(
             headers={'Authorization': 'ApiKey {}'.format(self.api_key)})
+        self.api_key_id = base64.b64decode(api_key.encode(encoding='utf-8')).split(':')[0]
+        self.api_key_instance = base64.b64decode(api_key.encode(encoding='utf-8')).split(':')[1]
+        self.elasticsearch_client = Elasticsearch(hosts=[f'{server}:{port}'], api_key=(self.api_key_id, self.api_key_instance))
 
         response = self.request_session.get(self.root_url)
         if response.status_code != 200 or not self.is_cluster_healthy():
@@ -30,9 +36,16 @@ class ElasticsearchConnection:
 
     def close(self):
         self.request_session.close()
+        self.elasticsearch_client.close()
 
     def __exit__(self, type, value, traceback):
         self.close()
+
+    def get_client(self) -> Elasticsearch:
+        return self.elasticsearch_client
+
+    def delete_by_id(self, index: str, _id: str):
+        return self.elasticsearch_client.delete(index=index, id=_id)
 
     def install_component_template(self, template_name, template, description=None, version=None, requires_prefix=None):
         if template_name not in self.loaded_component_templates():
