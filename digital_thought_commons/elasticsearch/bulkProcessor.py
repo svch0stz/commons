@@ -23,7 +23,9 @@ class BulkProcessor:
             return
 
         logging.getLogger('elastic').info("Processing Bulk Index Batch. Size: {}".format(str(self.current_batch_size)))
-        r = self.request_session.post(self.root_url + "/_bulk", data=self.entries)
+        headers = self.request_session.headers
+        headers['Content-Type'] = 'application/x-ndjson'
+        r = self.request_session.post(self.root_url + "/_bulk", data=self.entries, headers=headers)
         if r.status_code >= 400:
             logging.getLogger('elastic').error("Bulk index returned Error Code: {} [{}]".format(str(r.status_code), r.content))
 
