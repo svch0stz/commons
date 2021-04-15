@@ -22,7 +22,7 @@ class ElasticsearchConnection:
             headers={'Authorization': 'ApiKey {}'.format(self.api_key)})
         self.api_key_id = base64.b64decode(api_key.encode(encoding='utf-8')).decode("utf-8").split(':')[0]
         self.api_key_instance = base64.b64decode(api_key.encode(encoding='utf-8')).decode("utf-8").split(':')[1]
-        self.elasticsearch_client = Elasticsearch(hosts=[f'{server}:{port}'], api_key=(self.api_key_id, self.api_key_instance))
+        self.elasticsearch_client = Elasticsearch('https://{}:{}/'.format(server, port), api_key=self.api_key)
 
         response = self.request_session.get(self.root_url)
         if response.status_code != 200 or not self.is_cluster_healthy():
