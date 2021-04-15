@@ -21,3 +21,4 @@ setuptools~=50.3.2
 google-api-python-client
 google-auth-httplib2
 google-auth-oauthlib
+selenium==3.141.0

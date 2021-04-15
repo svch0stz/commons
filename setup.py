@@ -36,7 +36,8 @@ setuptools.setup(
         "pysocks",
         "google-api-python-client",
         "google-auth-httplib2",
-        "google-auth-oauthlib"
+        "google-auth-oauthlib",
+        "selenium==3.141.0"
     ],
     classifiers=[
         "Programming Language :: Python :: 3.8",
