@@ -21,7 +21,6 @@ class ElasticsearchConnection:
         self.request_session = internet.retry_request_session(
             headers={'Authorization': 'ApiKey {}'.format(self.api_key)})
         
-        print(base64.b64decode(api_key))
         self.api_key_id = base64.b64decode(api_key.encode(encoding='utf-8')).decode("utf-8").split(':')[0]
         self.api_key_instance = base64.b64decode(api_key.encode(encoding='utf-8')).decode("utf-8").split(':')[1]
         self.elasticsearch_client = Elasticsearch('https://{}:{}/'.format(server, port), api_key=self.api_key)

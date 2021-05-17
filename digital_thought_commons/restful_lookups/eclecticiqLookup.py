@@ -28,42 +28,9 @@ class EclecticIQIPAddress:
         query_payload = "extracts.kind:ipv4 AND extracts.value: {}".format(ip_address)
         return self.cache.lookup(self.lookup_method, query_payload=query_payload)
 
-
-# class VirusTotalURL:
-#
-#     def __init__(self, request_session, api_cache, api_url, lookup_method):
-#         self.request_session = request_session
-#         self.cache = api_cache
-#         self.api_url = api_url
-#         self.lookup_method = lookup_method
-#
-#     def __encode_url(self, url):
-#         return base64.b64encode(url.encode("UTF-8")).decode("UTF-8")
-#
-#     def retrieve_url_information(self, url):
-#         query_payload = 'urls/{}'.format(self.__encode_url(url))
-#         return self.cache.lookup(self.lookup_method, query_payload=query_payload)
-#
-#     def retrieve_url_comments(self, url):
-#         query_payload = 'urls/{}/comments'.format(self.__encode_url(url))
-#         return self.cache.lookup(self.lookup_method, query_payload=query_payload)
-#
-#     def retrieve_url_relationships(self, url, relationship):
-#         query_payload = 'urls/{}/{}'.format(self.__encode_url(url), relationship)
-#         return self.cache.lookup(self.lookup_method, query_payload=query_payload)
-#
-#     def retrieve_url_relationship_objects(self, url, relationship):
-#         query_payload = 'urls/{}/relationships/{}'.format(self.__encode_url(url), relationship)
-#         return self.cache.lookup(self.lookup_method, query_payload=query_payload)
-#
-#     def retrieve_url_votes(self, url):
-#         query_payload = 'urls/{}/votes'.format(self.__encode_url(url))
-#         return self.cache.lookup(self.lookup_method, query_payload=query_payload)
-
-
 class EclecticIQ:
     
-    api_url = '"https://{}.eiq-platform.com/private/search-all/"'
+    api_url = "https://{}.eiq-platform.com/private/search-all/"
 
     def __init__(self, api_key, eiq_instance="default"):
         self.api_key = api_key
