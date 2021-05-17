@@ -14,9 +14,9 @@ import yaml
 from digital_thought_commons import elasticsearch
 
 cache_resource_folder = "{}/../_resources/cache".format(str(pathlib.Path(__file__).parent.absolute()))
-default_cache_configuration_file = f'{cache_resource_folder}/default_cache_config.yaml'
-system_cache_configuration_file = './config/loggingConfig.yaml'
-
+#default_cache_configuration_file = f'{cache_resource_folder}/default_cache_config.yaml'
+system_cache_configuration_file = './config/cacheConfig.yaml'
+default_cache_configuration_file = './config/cacheConfig.yaml'
 
 class QueueCache:
 

@@ -19,7 +19,6 @@ class ScrollQuery:
         body = query
 
         r = self.request_session.post(self.root_url + index + "/_search?scroll=1m", json=body)
-
         scroll_id = r.json()['_scroll_id']
         self.scroll_ids.append(scroll_id)
         hits = r.json()['hits']['hits']

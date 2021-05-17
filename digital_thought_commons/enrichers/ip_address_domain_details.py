@@ -4,11 +4,11 @@ import socket
 from IPy import IP
 
 from digital_thought_commons.restful_lookups.ianaPortLookup import IanaPortServiceNames
-from digital_thought_commons.restful_lookups import IPAbuseDB
+from digital_thought_commons.restful_lookups.ipabusedbLookup import IPAbuseDB
 from digital_thought_commons.restful_lookups.ipstackLookup import IPStack
 from digital_thought_commons.restful_lookups.maxmindLookup import MaxMind
-from digital_thought_commons.restful_lookups import ViewDNS
-from digital_thought_commons.restful_lookups import VirusTotal
+#from digital_thought_commons.restful_lookups. import ViewDNS
+from digital_thought_commons.restful_lookups.virusTotalLookup import VirusTotal
 
 
 class IPAddressDomainInfo:
@@ -17,7 +17,7 @@ class IPAddressDomainInfo:
         self.api_keys = api_keys
         self.ipabusedb = None
         self.ipstack = None
-        self.viewdns = None
+        #self.viewdns = None
         self.maxmind = None
         self.virustotal = None
         self.ianaPortService = IanaPortServiceNames()
@@ -28,14 +28,14 @@ class IPAddressDomainInfo:
         if 'ipstack' in self.api_keys:
             logging.info("Initialised IPStack")
             self.ipstack = IPStack(api_key=self.api_keys['ipstack'])
-        if 'viewdns' in self.api_keys:
-            logging.info("Initialised ViewDNS")
-            self.viewdns = ViewDNS(api_key=self.api_keys['viewdns'])
+        #if 'viewdns' in self.api_keys:
+        #    logging.info("Initialised ViewDNS")
+        #    self.viewdns = ViewDNS(api_key=self.api_keys['viewdns'])
         if 'maxmind' in self.api_keys:
-            logging.info("Initialised ViewDNS")
+            logging.info("Initialised maxmind")
             self.maxmind = MaxMind(api_key=self.api_keys['maxmind'])
         if 'virustotal' in self.api_keys:
-            logging.info("Initialised ViewDNS")
+            logging.info("Initialised virustotal")
             self.virustotal = VirusTotal(api_key=self.api_keys['virustotal'])
 
     def __lookup_ip_stack_info(self, ip_address, details):
